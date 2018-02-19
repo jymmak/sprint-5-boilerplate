@@ -6,5 +6,30 @@
 
 body{
   font-family:Raleway,sans-serif;
-
+}
+nav,.btn-search {
+  background-color:rgb(247, 83, 83);
+  color: whitesmoke;
+}
+h1{
+  margin-left: 5%;
+}
+.btn-modal{
+  background-color:rgb(17, 158, 17);
+  color: whitesmoke;
+  margin-left: 2%;
+}
+h2{
+  padding: 3%;
+}
+.search{
+  margin-left: 1%;
+}
+.line{
+  width: 100%;
+  border: 1px solid rgb(218, 172, 172);
+  margin-top: 5%;
+}
+.modal-title{
+color: rgb(236, 141, 141);
 }

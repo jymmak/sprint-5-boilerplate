@@ -7,19 +7,100 @@
   <meta http-equiv="X-UA-Compatible" content="ie=edge">
   <title>FORO DE OPINIÓN</title>
   <link href="https://fonts.googleapis.com/css?family=Raleway" rel="stylesheet">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm"
+    crossorigin="anonymous">
+  <link rel="stylesheet" href="assets/fontawesome/web-fonts-with-css/css/fontawesome-all.min.css">
   <link rel="stylesheet" href="css/main.css">
 </head>
 
 <body>
 
+  <header>
+    <nav>
+      <h1>
+        <strong> Multiforo</strong>
+      </h1>
+    </nav>
+    <h2>Encuentra todo lo que buscas...</h2>
+  </header>
+
+  <!--Search-->
+  <div class="container-fluid">
+    <div class="row">
+      <div class="col-md-4 col-sm-12 search">
+
+        <form id="search-form" class="navbar-form navbar-left" role="search">
+          <div class="form-group">
+            <input id="search" type="text" class="form-control" placeholder="Busca tu tema favorito...">
+          </div>
+
+        </form>
+
+      </div>
+      <div class="col-md-7 col-sm-12 search">
+        <!-- modal para crear nuevo tema -->
+        <button type="submit" class="btn btn-search">Buscar</button>
+        <button type="button" class="btn  btn-modal" data-toggle="modal" data-target="#myModal">
+          Agregar nuevo tema
+        </button>
+      </div>
+
+    </div>
+    <div class="line"></div>
+  </div>
+
+
+  <!--Modal-->
+  <div class="container-fluid">
+    <div class="row">
+      <div class="col-md-8 col-sm-12">
+        <div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+          <div class="modal-dialog" role="document">
+            <form id="add-form">
+              <div class="modal-content">
+                <div class="modal-header">
+                  <h4 class="modal-title" id="myModalLabel">Nuevo tema</h4>
+                  <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                  </button>
+                </div>
+                <div class="modal-body">
+                  <div class="form-group">
+                    <!-- <label>Ingresa un nuevo tema!</label>
+                 <input type="text" class="form-control" id="titulo-tema" placeholder="Título"> -->
+                    <label>Autor</label>
+                    <input type="text" class="form-control" id="autor-tema" placeholder="Autor">
+                    <br>
+                    <label>Contenido</label>
+                    <textarea id="contenido" name="name" rows="5" cols="55" placeholder="Cuéntanos lo que se te ocurra!"></textarea>
+                  </div>
+                </div>
+                <div class="modal-footer">
+                  <button type="button" class="btn btn-default" data-dismiss="modal">Cancelar</button>
+                  <button type="submit" class="btn btn-modal">Agregar</button>
+                </div>
+              </div>
+            </form>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+
+  <section id="mostrarTemas">
+
+  </section>
 
 
   <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN"
     crossorigin="anonymous"></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q"
     crossorigin="anonymous"></script>
-    <script src="js/functions.js"></script>
-    <script src="js/main.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl"
+    crossorigin="anonymous"></script>
+  <script src="js/functions.js"></script>
+  <script src="js/main.js"></script>
 </body>
 
 </html>
