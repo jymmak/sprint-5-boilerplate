@@ -1,0 +1,152 @@
+FORMAT: 1A
+HOST: http://examen-laboratoria-sprint-5.herokuapp.com/
+
+# Foro API
+
+FORO API es una API sencilla para poder crear y consultar temas (o topics)  y las respuestas (responses) a esos temas.
+
+## Colección de temas [/topics]
+
+### Mostrar todos los temas  [GET]
+
++ Response 200 (application/json)
+
+        [
+            {
+                "id": 1,
+                "author_name": "Emmanuel",
+                "content": "Miren esta URL",
+                "responses_count":2
+            },
+            {
+                "id": 2,
+                "author_name": "Aristegui",
+                "content": "Vamos a la playa, LOL",
+                "responses_count":1
+            }
+        ]
+        
+        
+### Crear un nuevo tema [POST]
+
+Puedes crear tus temas usando este endpoint. El endpoint recibe un JSON conteniendo
+el nombre del tema, el autor y el contenido. 
+
++ Request (application/json)
+
+        {
+            "author_name": "Emmanuel",
+            "content": "Vean este nuevo video. Esta Chido",
+        }
+
++ Response 201 (application/json)
+
+    + Headers
+
+            Location: /topics
+
+    + Body
+
+            {
+                "id": 6,
+                "author_name": "Gian Carlo",
+                "content": "Vean esta nueva tecnología",
+                "created_at": "2017-06-05T21:06:47.053Z",
+                "updated_at": "2017-06-05T21:06:47.053Z"
+            }
+            
++ Response 422 (Error Response)
+
+    + Headers
+
+            Location: /topics
+
+    + Body
+
+            {
+                "author_name": ["can´t be blank"],
+                "content": ["can´t be blank"],
+            }
+        
+
+## Tema Individual [/topics/{topic_id}]
+
+### Obtener tema individual  [GET]
+
++ Response 200 (application/json)
+
+        {
+            "id": 1,
+            "author_name": "Emmanuel",
+            "content": "Miren esta URL",
+            "created_at": "2017-06-05T21:19:00.801Z",
+            "updated_at": "2017-06-05T21:19:00.801Z"
+        }
+
+
+
+## Colección de respuestas [/topics/{topic_id}/responses]
+
+### Mostrar todas las respuestas de un tema  [GET]
+
++ Response 200 (application/json)
+
+        [
+            {
+                "id": 1,
+                "author_name": "Emmanuel",
+                "content": "Miren esta URL",
+                "responses_count":2
+            },
+            {
+                "id": 2,
+                "author_name": "Aristegui",
+                "content": "Vamos a la playa, LOL",
+                "responses_count":1
+            }
+        ]
+
+### Crear una nueva respuesta [POST]
+
+Puedes crear una respuesta a un tema usando este endpoint, el cual recibe un JSON con el
+id del tema, el autor y el contenido de la respuesta.
+
+
++ Request (application/json)
+
+        {
+            "author_name": "Emmanuel",
+            "content": "Esta increible, gracias",
+            "topic_id": 2
+        }
+
++ Response 201 (application/json)
+
+    + Headers
+
+            Location: /topics
+
+    + Body
+
+            {
+                "id": 7,
+                "author_name": "Gian Carlo",
+                "content": "Me gusto el video",
+                "topic_id": 2,
+                "created_at": "2017-06-05T21:06:47.053Z",
+                "updated_at": "2017-06-05T21:06:47.053Z"
+            }
+
++ Response 422 (Error Response)
+
+    + Headers
+
+            Location: /topics/{topic_id}/responses
+
+    + Body
+
+            {
+                "author_name": ["can´t be blank"],
+                "content": ["can´t be blank"],
+                "topic_id": ["can´t be blank"]
+            }

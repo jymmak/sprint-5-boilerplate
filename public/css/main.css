@@ -19,6 +19,9 @@ h1{
   color: whitesmoke;
   margin-left: 2%;
 }
+textarea{
+  width: 98%;
+}
 h2{
   padding: 3%;
 }

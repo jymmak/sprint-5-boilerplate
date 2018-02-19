@@ -3,17 +3,21 @@ var todosLosTemas = {
 };
 
 var $mostrarTemas = $('#mostrarTemas');
-var cargarPagina = function () {
+
+var cargarPagina = function() {
   mostrarTodosTemas();
   $('#add-form').submit(agregarTemaNuevo);
 };
-var mostrarTodosTemas = function () {
-  $.getJSON(todosLosTemas.url, function (temas) {
+
+var mostrarTodosTemas = function() {
+  $.getJSON(todosLosTemas.url, function(temas) {
     console.log(temas);
     temas.forEach(crearTema);
   });
 };
-var crearTema = function (tema) {
+var crearTema = function(tema) {
+
+  var autor = tema.author_name;
   var numRespuestas = tema.responses_count;
   var contenidoTema = tema.content;
   var $contenedorTema = $('<div />');
@@ -33,12 +37,13 @@ var crearTema = function (tema) {
   $contenedorTema.append($autor);
   $contenedorTema.append($contadorRespuestas);
 
+ 
   $mostrarTemas.append($contenedorTema);
 };
 
-var agregarTemaNuevo = function (e) {
+var agregarTemaNuevo = function(e) {
   e.preventDefault();
-
+  // var titulo = $("#titulo-tema").val();
   var autor = $('#autor-tema').val();
   var contenido = $('#contenido').val();
 
@@ -46,8 +51,12 @@ var agregarTemaNuevo = function (e) {
     author_name: autor,
     content: contenido,
 
-  }, function (tema) {
+  }, function(tema) {
     crearTema(tema);
-    $('#myModal').modal('hide');
+    $('   #myModal').modal('hide');
+ 
   });
 };
+
+
+$(document).ready(cargarPagina);
