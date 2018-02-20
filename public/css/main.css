@@ -12,7 +12,7 @@ nav,.btn-search {
   color: whitesmoke;
 }
 h1{
-  margin-left: 5%;
+  padding: 3%;
 }
 .btn-modal{
   background-color:rgb(17, 158, 17);
@@ -35,4 +35,7 @@ h2{
 }
 .modal-title{
 color: rgb(236, 141, 141);
+}
+.container{
+  background: url('../assets/images/back.jpg') center center fixed;
 }
