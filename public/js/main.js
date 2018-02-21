@@ -7,7 +7,7 @@ $(document).ready(function(){
 
 var cargarPagina = function() {
   mostrarTodosTemas();
-  $('#add-form').submit(agregarTemaNuevo);
+
 };
 
 var mostrarTodosTemas = function() {
@@ -17,6 +17,8 @@ var mostrarTodosTemas = function() {
 };
 
 var crearTema = function(tema) {
+
+  var $contenedorTema = $('<div />');
   $contenedorTema.addClass('jumbotron');
   $contenedorTema.append("<h6>Número de tema: "+ tema.id +"</h6>");
   $contenedorTema.append("<h6><strong>Autor: </strong>"+tema.author_name +"</h6>");
@@ -26,22 +28,24 @@ var crearTema = function(tema) {
 
 };
 
-var agregarTemaNuevo = function(e) {
-  e.preventDefault();
-  var titulo = $("#titulo-tema").val();
-  var autor = $('#autor-tema').val();
-  var contenido = $('#contenido').val();
+$('#btnSearch').on('click', function(){
+  console.log('incicia el evento');
+    $.post(todosLosTemas.url, {
+      'author_name': $('#autor-tema').val(),
+      'content': $('#contenido').val()
+    }, function(tema) {
+      console.log('entro a la funcion');
+      var $contenedorTema = $('<div />');
+      $contenedorTema.addClass('jumbotron');
+      $contenedorTema.append("<h6><strong>Autor: </strong>"+tema.author_name +"</h6>");
+      $contenedorTema.append("<h6><strong>Contenido: </strong>"+tema.content +"</h6>");
+      $mostrarTemas.append($contenedorTema);
 
-  $.post(todosLosTemas.url, {
-    author_name: autor,
-    content: contenido,
+    });
+    console.log('se esconde el modal');
+    $('#myModal').modal('hide');
+})
 
-  }, function(tema) {
-    crearTema(tema);
-    $('   #myModal').modal('hide');
- 
-  });
-};
 
 cargarPagina();
 
