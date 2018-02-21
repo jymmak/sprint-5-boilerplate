@@ -1,6 +1,10 @@
 $(document).ready(function(){
-var topicId = getParameterByName($('#search').val());
+var topicId = getParameterByName();
 
+$.getJSON(todosLosTemas.url, function() {
+  console.log($mostrarTemas);
+
+});
 
 
 });
