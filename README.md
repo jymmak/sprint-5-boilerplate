@@ -42,7 +42,8 @@ Una respuesta tiene:
 
 ## Producto
 
-![](public/assets/images/.png)
+![](public/assets/images/readmeImagen.png)
+![](public/assets/images/readmeImagen2.png)
 
 ## Licencia
 
