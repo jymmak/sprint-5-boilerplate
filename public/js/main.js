@@ -44,7 +44,7 @@ $(document).ready(function() {
   $('#btnSearch').on('click', function() {
     $('.jumbotron').hide();
     var word = $('#search').val().toLowerCase();
-    $('. jumbotron:contains(' + word + ')').show();
+    $('.jumbotron:contains(' + word + ')').show();
   });
 
   cargarPagina();
